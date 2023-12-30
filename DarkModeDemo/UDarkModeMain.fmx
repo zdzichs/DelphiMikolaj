@@ -1,0 +1,79 @@
+object FormDarkModeMain: TFormDarkModeMain
+  Left = 0
+  Top = 0
+  Caption = 'DarkModeDemo'
+  ClientHeight = 480
+  ClientWidth = 388
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Button1: TButton
+    Align = Top
+    Size.Width = 388.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Kliknij mnie!'
+    TextSettings.Trimming = None
+    OnClick = Button1Click
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Client
+    Size.Width = 388.000000000000000000
+    Size.Height = 370.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Viewport.Width = 384.000000000000000000
+    Viewport.Height = 366.000000000000000000
+    object StyleBookLight: TStyleBook
+      Styles = <
+        item
+        end>
+      Left = 280
+      Top = 104
+    end
+  end
+  object TrackBar1: TTrackBar
+    Align = Top
+    CanParentFocus = True
+    Orientation = Horizontal
+    Position.Y = 41.000000000000000000
+    Size.Width = 388.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+  end
+  object StyleBookDark: TStyleBook
+    Styles = <
+      item
+      end>
+    Left = 280
+    Top = 164
+  end
+  object Rectangle1: TRectangle
+    Align = Top
+    Position.Y = 60.000000000000000000
+    Size.Width = 388.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object Label1: TLabel
+      Align = Contents
+      Margins.Left = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Size.Width = 348.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Trimming = None
+      Text = 
+        'Ten prostok'#261'cik powinien by'#263' '#380#243#322'ty w trybie jasnym i fioletowy w' +
+        ' trybie ciemnym!'
+      TabOrder = 0
+    end
+  end
+end

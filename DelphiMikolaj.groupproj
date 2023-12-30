@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D74DECB4-03AF-470F-944C-7866B910FF4E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MojaPogoda\MojaPogoda.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PogodaDemo\PogodaDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VCLDarkModeDemo\VCLDarkModeDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DarkModeDemo\DarkModeDemo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MojaPogoda">
+        <MSBuild Projects="MojaPogoda\MojaPogoda.dproj"/>
+    </Target>
+    <Target Name="MojaPogoda:Clean">
+        <MSBuild Projects="MojaPogoda\MojaPogoda.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MojaPogoda:Make">
+        <MSBuild Projects="MojaPogoda\MojaPogoda.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PogodaDemo">
+        <MSBuild Projects="PogodaDemo\PogodaDemo.dproj"/>
+    </Target>
+    <Target Name="PogodaDemo:Clean">
+        <MSBuild Projects="PogodaDemo\PogodaDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PogodaDemo:Make">
+        <MSBuild Projects="PogodaDemo\PogodaDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VCLDarkModeDemo">
+        <MSBuild Projects="VCLDarkModeDemo\VCLDarkModeDemo.dproj"/>
+    </Target>
+    <Target Name="VCLDarkModeDemo:Clean">
+        <MSBuild Projects="VCLDarkModeDemo\VCLDarkModeDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCLDarkModeDemo:Make">
+        <MSBuild Projects="VCLDarkModeDemo\VCLDarkModeDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DarkModeDemo">
+        <MSBuild Projects="DarkModeDemo\DarkModeDemo.dproj"/>
+    </Target>
+    <Target Name="DarkModeDemo:Clean">
+        <MSBuild Projects="DarkModeDemo\DarkModeDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DarkModeDemo:Make">
+        <MSBuild Projects="DarkModeDemo\DarkModeDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MojaPogoda;PogodaDemo;VCLDarkModeDemo;DarkModeDemo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MojaPogoda:Clean;PogodaDemo:Clean;VCLDarkModeDemo:Clean;DarkModeDemo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MojaPogoda:Make;PogodaDemo:Make;VCLDarkModeDemo:Make;DarkModeDemo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

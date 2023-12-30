@@ -1,0 +1,583 @@
+object FPogodaMain: TFPogodaMain
+  Left = 0
+  Top = 0
+  Caption = 'Moja Pogoda'
+  ClientHeight = 480
+  ClientWidth = 374
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnResize = FormResize
+  DesignerMasterStyle = 0
+  object TabControlMain: TTabControl
+    Align = Client
+    Size.Width = 374.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 0
+    TabOrder = 1
+    TabPosition = None
+    Sizes = (
+      374s
+      480s
+      374s
+      480s)
+    object TabItemForecast: TTabItem
+      CustomIcon = <
+        item
+        end>
+      TextSettings.Trimming = None
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItemForecast'
+      ExplicitSize.cx = 107.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object ListViewForecast: TListView
+        ItemAppearanceClassName = 'TImageListItemBottomDetailAppearance'
+        ItemEditAppearanceClassName = 'TImageListItemBottomDetailShowCheckAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        OnUpdateObjects = ListViewForecastUpdateObjects
+        Align = Client
+        Size.Width = 374.000000000000000000
+        Size.Height = 319.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        ItemAppearanceObjects.ItemObjects.Image.Width = 45.000000000000000000
+        ItemAppearanceObjects.ItemObjects.Image.Height = 45.000000000000000000
+        CanSwipeDelete = False
+        OnScrollViewChange = ListViewForecastScrollViewChange
+        OnItemClickEx = ListViewForecastItemClickEx
+      end
+      object ToolBar2: TToolBar
+        Size.Width = 374.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object LabelTitle: TLabel
+          Align = Contents
+          Size.Width = 374.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'toollabel'
+          TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
+          Text = 'Moja pogoda'
+          TabOrder = 0
+        end
+      end
+      object EditSearch: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 0
+        Position.X = 5.000000000000000000
+        Position.Y = 53.000000000000000000
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 364.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChangeTracking = EditSearchChangeTracking
+        object ButtonClearEditSearch: TButton
+          Align = Right
+          Position.X = 332.000000000000000000
+          Size.Width = 32.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'cleareditbutton'
+          TabOrder = 0
+          Text = 'ButtonClearEditSearch'
+          TextSettings.Trimming = None
+          OnClick = ButtonClearEditSearchClick
+        end
+        object ButtonSearch: TButton
+          Align = Left
+          HitTest = False
+          Opacity = 0.699999988079071000
+          Size.Width = 32.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'searcheditbutton'
+          TabOrder = 1
+          Text = 'ButtonClearEditSearch'
+          TextSettings.Trimming = None
+        end
+      end
+      object LayoutCurrentWeather: TLayout
+        Align = Top
+        Position.Y = 95.000000000000000000
+        Size.Width = 374.000000000000000000
+        Size.Height = 66.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object Layout1: TLayout
+          Align = Client
+          Size.Width = 264.000000000000000000
+          Size.Height = 66.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Layout2: TLayout
+            Align = Top
+            Size.Width = 264.000000000000000000
+            Size.Height = 33.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object LabelTempCurr: TLabel
+              Align = Left
+              Size.Width = 97.000000000000000000
+              Size.Height = 33.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Trimming = None
+              Text = ' '
+              TabOrder = 1
+            end
+            object LabelPressureCurr: TLabel
+              Align = Left
+              Position.X = 97.000000000000000000
+              Size.Width = 97.000000000000000000
+              Size.Height = 33.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Trimming = None
+              Text = ' '
+              TabOrder = 0
+            end
+          end
+          object LabelDescCurr: TLabel
+            Align = Client
+            Size.Width = 264.000000000000000000
+            Size.Height = 33.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.VertAlign = Leading
+            TextSettings.Trimming = None
+            Text = ' '
+            TabOrder = 0
+          end
+        end
+        object RoundRect1: TRoundRect
+          Align = Left
+          Fill.Color = claWhite
+          Margins.Left = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Size.Width = 90.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          object ImageWeatherCurr: TImage
+            MultiResBitmap = <
+              item
+              end>
+            Align = Client
+            Size.Width = 90.000000000000000000
+            Size.Height = 56.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+      end
+      object MemoLog: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        Align = Bottom
+        Position.Y = 328.000000000000000000
+        Size.Width = 374.000000000000000000
+        Size.Height = 152.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Visible = False
+        Viewport.Width = 370.000000000000000000
+        Viewport.Height = 148.000000000000000000
+      end
+    end
+    object TabItemResults: TTabItem
+      CustomIcon = <
+        item
+        end>
+      TextSettings.Trimming = None
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItemResults'
+      ExplicitSize.cx = 100.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object ListBoxDetails: TListBox
+        Align = Client
+        Size.Width = 374.000000000000000000
+        Size.Height = 432.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = 'listboxitemnodetail'
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        GroupingKind = Grouped
+        OnItemClick = ListBoxDetailsItemClick
+        Viewport.Width = 370.000000000000000000
+        Viewport.Height = 428.000000000000000000
+        object ListBoxItemTemp: TListBoxItem
+          Size.Width = 370.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Temperatura'
+          object LabelTemp: TLabel
+            Align = Right
+            AutoSize = True
+            Margins.Top = 8.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Position.X = 360.000000000000000000
+            Position.Y = 8.000000000000000000
+            Size.Width = 0.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.WordWrap = False
+            TextSettings.Trimming = None
+          end
+        end
+        object ListBoxItemCisn: TListBoxItem
+          Position.Y = 44.000000000000000000
+          Size.Width = 370.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = 'Ci'#347'nienie'
+          object LabelCisn: TLabel
+            Align = Right
+            AutoSize = True
+            Margins.Top = 8.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Position.X = 360.000000000000000000
+            Position.Y = 8.000000000000000000
+            Size.Width = 0.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.WordWrap = False
+            TextSettings.Trimming = None
+          end
+        end
+        object ListBoxItemTmin: TListBoxItem
+          Position.Y = 88.000000000000000000
+          Size.Width = 370.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Text = 'Temp. min'
+          object LabelTmin: TLabel
+            Align = Right
+            AutoSize = True
+            Margins.Top = 8.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Position.X = 360.000000000000000000
+            Position.Y = 8.000000000000000000
+            Size.Width = 0.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.WordWrap = False
+            TextSettings.Trimming = None
+          end
+        end
+        object ListBoxItemTmax: TListBoxItem
+          Position.Y = 132.000000000000000000
+          Size.Width = 370.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = 'Temp. max'
+          object LabelTmax: TLabel
+            Align = Right
+            AutoSize = True
+            Margins.Top = 8.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Position.X = 360.000000000000000000
+            Position.Y = 8.000000000000000000
+            Size.Width = 0.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.WordWrap = False
+            TextSettings.Trimming = None
+          end
+        end
+        object ListBoxItemWilg: TListBoxItem
+          Position.Y = 176.000000000000000000
+          Size.Width = 370.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          Text = 'Wilgotno'#347#263
+          object LabelWilg: TLabel
+            Align = Right
+            AutoSize = True
+            Margins.Top = 8.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Position.X = 360.000000000000000000
+            Position.Y = 8.000000000000000000
+            Size.Width = 0.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.WordWrap = False
+            TextSettings.Trimming = None
+          end
+        end
+        object ListBoxItemChmury: TListBoxItem
+          Position.Y = 220.000000000000000000
+          Size.Width = 370.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 5
+          object LabelChmuryOpis: TLabel
+            Align = Left
+            AutoSize = True
+            Margins.Left = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Size.Width = 75.000000000000000000
+            Size.Height = 44.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.WordWrap = False
+            TextSettings.Trimming = None
+            Text = 'Zachmurzenie'
+            TabOrder = 46
+          end
+          object LayoutChmury: TLayout
+            Align = Client
+            Opacity = 0.500000000000000000
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Size.Width = 187.000000000000000000
+            Size.Height = 24.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 47
+            OnResize = LayoutChmuryResize
+            object RoundRectChmury: TRoundRect
+              Align = Client
+              Corners = [TopRight, BottomRight]
+              Size.Width = 187.000000000000000000
+              Size.Height = 24.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Kind = None
+              object RoundRectChmuryWartosc: TRoundRect
+                Align = Left
+                ClipChildren = True
+                Corners = [TopRight, BottomRight]
+                Fill.Color = claSteelblue
+                Size.Width = 0.000000000000000000
+                Size.Height = 24.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Kind = None
+              end
+            end
+          end
+          object LayoutRight: TLayout
+            Align = Right
+            Position.X = 312.000000000000000000
+            Size.Width = 58.000000000000000000
+            Size.Height = 44.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 48
+            object LabelChmury: TLabel
+              Align = Right
+              AutoSize = True
+              Margins.Top = 8.000000000000000000
+              Margins.Right = 10.000000000000000000
+              Position.X = 48.000000000000000000
+              Position.Y = 8.000000000000000000
+              Size.Width = 0.000000000000000000
+              Size.Height = 36.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.WordWrap = False
+              TextSettings.Trimming = None
+              TabOrder = 46
+            end
+          end
+        end
+        object ListBoxItemIcon: TListBoxItem
+          Position.Y = 264.000000000000000000
+          Size.Width = 370.000000000000000000
+          Size.Height = 120.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 6
+          object ImageWeather: TImage
+            MultiResBitmap = <
+              item
+              end>
+            Align = Client
+            Size.Width = 370.000000000000000000
+            Size.Height = 120.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+      end
+      object ToolBar1: TToolBar
+        Size.Width = 374.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object LabelDetails: TLabel
+          Align = Contents
+          Size.Width = 374.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'toollabel'
+          TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
+          Text = 'Szczeg'#243#322'y'
+          TabOrder = 1
+        end
+        object ButtonWroc: TButton
+          Align = Left
+          Margins.Left = 5.000000000000000000
+          Position.X = 5.000000000000000000
+          Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'backtoolbutton'
+          TabOrder = 0
+          TextSettings.Trimming = None
+          OnClick = ButtonWrocClick
+        end
+      end
+    end
+  end
+  object TimerTyping: TTimer
+    Enabled = False
+    OnTimer = TimerTypingTimer
+    Left = 272
+    Top = 424
+  end
+  object AniIndicator1: TAniIndicator
+    Align = Contents
+    Size.Width = 374.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object TimerAdjustBars: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = TimerAdjustBarsTimer
+    Left = 136
+    Top = 375
+  end
+  object TimerUpdateWeather: TTimer
+    Enabled = False
+    Interval = 300000
+    OnTimer = TimerUpdateWeatherTimer
+    Left = 312
+    Top = 305
+  end
+  object StyleBookLight: TStyleBook
+    Styles = <
+      item
+      end>
+    Left = 296
+    Top = 78
+  end
+  object StyleBookDark: TStyleBook
+    Styles = <
+      item
+      end>
+    Left = 336
+    Top = 110
+  end
+  object RESTClient1: TRESTClient
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'utf-8, *;q=0.8'
+    BaseURL = 'http://api.openweathermap.org'
+    Params = <>
+    SynchronizedEvents = False
+    Left = 32
+    Top = 80
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <
+      item
+        Kind = pkURLSEGMENT
+        Name = 'q'
+        Value = 'Gliwice'
+      end
+      item
+        Kind = pkURLSEGMENT
+        Name = 'r'
+        Options = [poAutoCreated]
+      end>
+    Resource = 
+      'data/2.5/forecast?q={q}&units=metric&APPID=KLUCZ_Z_OPENWEATHERcc' +
+      'ca0164f89&lang=pl&rnd={r}'
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 40
+    Top = 136
+  end
+  object RESTResponse1: TRESTResponse
+    Left = 40
+    Top = 208
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+  end
+  object ActionList1: TActionList
+    Left = 240
+    Top = 338
+    object NextTabActionDetails: TNextTabAction
+      Category = 'Tab'
+      TabControl = TabControlMain
+    end
+    object PreviousTabActionDetails: TPreviousTabAction
+      Category = 'Tab'
+      TabControl = TabControlMain
+    end
+  end
+  object RESTClient2: TRESTClient
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'utf-8, *;q=0.8'
+    BaseURL = 'http://api.openweathermap.org'
+    Params = <>
+    SynchronizedEvents = False
+    Left = 24
+    Top = 280
+  end
+  object RESTRequest2: TRESTRequest
+    Client = RESTClient2
+    Params = <
+      item
+        Kind = pkURLSEGMENT
+        Name = 'q'
+        Value = 'Gliwice'
+      end
+      item
+        Kind = pkURLSEGMENT
+        Name = 'r'
+        Options = [poAutoCreated]
+      end>
+    Resource = 
+      'data/2.5/weather?q={q}&units=metric&APPID=KLUCZ_Z_OPENWEATHERcca' +
+      '0164f89&lang=pl&rnd={r}'
+    Response = RESTResponse2
+    SynchronizedEvents = False
+    Left = 32
+    Top = 336
+  end
+  object RESTResponse2: TRESTResponse
+    ContentType = 'application/json'
+    Left = 32
+    Top = 408
+  end
+end
