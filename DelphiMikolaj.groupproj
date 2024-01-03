@@ -15,6 +15,9 @@
         <Projects Include="DarkModeDemo\DarkModeDemo.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="SkiaDemo\SkiaDemo.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -59,14 +62,23 @@
     <Target Name="DarkModeDemo:Make">
         <MSBuild Projects="DarkModeDemo\DarkModeDemo.dproj" Targets="Make"/>
     </Target>
+    <Target Name="SkiaDemo">
+        <MSBuild Projects="SkiaDemo\SkiaDemo.dproj"/>
+    </Target>
+    <Target Name="SkiaDemo:Clean">
+        <MSBuild Projects="SkiaDemo\SkiaDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SkiaDemo:Make">
+        <MSBuild Projects="SkiaDemo\SkiaDemo.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="MojaPogoda;PogodaDemo;VCLDarkModeDemo;DarkModeDemo"/>
+        <CallTarget Targets="MojaPogoda;PogodaDemo;VCLDarkModeDemo;DarkModeDemo;SkiaDemo"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="MojaPogoda:Clean;PogodaDemo:Clean;VCLDarkModeDemo:Clean;DarkModeDemo:Clean"/>
+        <CallTarget Targets="MojaPogoda:Clean;PogodaDemo:Clean;VCLDarkModeDemo:Clean;DarkModeDemo:Clean;SkiaDemo:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="MojaPogoda:Make;PogodaDemo:Make;VCLDarkModeDemo:Make;DarkModeDemo:Make"/>
+        <CallTarget Targets="MojaPogoda:Make;PogodaDemo:Make;VCLDarkModeDemo:Make;DarkModeDemo:Make;SkiaDemo:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
